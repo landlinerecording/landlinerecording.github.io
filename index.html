@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landline Recording | Hoboken, NJ</title>
+<meta name="description" content="Landline Recording — boutique recording studio in Hoboken, NJ. Recording, mixing, mastering, and 1-on-1 music production lessons with audio engineer Jon Chinn.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0c0b;
+    --bg-alt:#161412;
+    --card:#1c1917;
+    --line:rgba(255,255,255,0.08);
+    --text:#f2ede6;
+    --text-dim:#a8a099;
+    --accent:#e08a3c;
+    --accent-dim:#8a5a2c;
+    --serif: 'Space Grotesk', sans-serif;
+    --sans: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,12,11,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    font-family:var(--serif); font-weight:700; font-size:1.25rem;
+    letter-spacing:0.02em;
+  }
+  .logo span{color:var(--accent);}
+  nav ul{display:flex; gap:32px; list-style:none;}
+  nav a{
+    font-size:0.9rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--text-dim); transition:color 0.2s;
+  }
+  nav a:hover{color:var(--accent);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--text); font-size:1.5rem; cursor:pointer;}
+
+  /* Hero */
+  .hero{
+    min-height:78vh;
+    display:flex; flex-direction:column; align-items:flex-start; justify-content:center;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(224,138,60,0.10), transparent 55%),
+      linear-gradient(180deg, #0d0c0b 0%, #161412 100%);
+    position:relative;
+    padding:80px 0;
+  }
+  .hero .wrap{width:100%;}
+  .eyebrow{
+    color:var(--accent); text-transform:uppercase; letter-spacing:0.2em;
+    font-size:0.8rem; margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--serif); font-weight:700;
+    font-size:clamp(2.5rem, 6vw, 4.5rem);
+    line-height:1.05;
+    max-width:820px;
+  }
+  .hero p.lead{
+    margin-top:22px; max-width:560px; color:var(--text-dim); font-size:1.1rem;
+  }
+  .hero .cta-row{margin-top:34px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 28px; border-radius:2px;
+    font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em;
+    transition:all 0.2s; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent); color:#161412; font-weight:600;}
+  .btn-primary:hover{background:#f0a05c;}
+  .btn-ghost{border-color:var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* Section generic */
+  section{padding:100px 0; border-top:1px solid var(--line);}
+  .section-head{margin-bottom:56px;}
+  .section-head .eyebrow{margin-bottom:10px;}
+  .section-head h2{
+    font-family:var(--serif); font-weight:600; font-size:clamp(1.8rem,3.5vw,2.6rem);
+  }
+
+  /* Services */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:24px;
+  }
+  .service-card{
+    background:var(--card); border:1px solid var(--line); padding:32px 26px;
+    transition:border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover{border-color:var(--accent-dim); transform:translateY(-4px);}
+  .service-card h3{
+    font-family:var(--serif); color:var(--accent); font-size:1.15rem;
+    letter-spacing:0.05em; margin-bottom:14px; text-transform:uppercase;
+  }
+  .service-card p{color:var(--text-dim); font-size:0.95rem;}
+
+  /* About */
+  .about-grid{
+    display:grid; grid-template-columns:1fr 1.3fr; gap:56px; align-items:center;
+  }
+  .about-photo{
+    aspect-ratio:4/5; background:linear-gradient(160deg,#2a2622,#141210);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-dim); font-size:0.8rem; text-align:center; padding:20px;
+    overflow:hidden;
+  }
+  .about-photo img{width:100%; height:100%; object-fit:cover;}
+  .about-copy p{margin-bottom:18px; color:var(--text-dim);}
+  .about-copy blockquote{
+    margin-top:26px; padding-left:20px; border-left:2px solid var(--accent);
+    font-family:var(--serif); font-style:italic; font-size:1.15rem; color:var(--text);
+  }
+
+  /* Gallery */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:16px;
+  }
+  .gallery-item{
+    aspect-ratio:1/1; background:linear-gradient(150deg,#221f1c,#131110);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-dim); font-size:0.75rem; text-align:center; padding:10px;
+    overflow:hidden;
+  }
+  .gallery-item img{width:100%; height:100%; object-fit:cover;}
+
+  /* Rates */
+  .rates-table{width:100%; border-collapse:collapse; max-width:600px;}
+  .rates-table tr{border-bottom:1px solid var(--line);}
+  .rates-table td{padding:18px 4px; font-size:1rem;}
+  .rates-table td:first-child{color:var(--text-dim);}
+  .rates-table td:last-child{
+    text-align:right; font-family:var(--serif); font-weight:600; color:var(--accent);
+    font-size:1.1rem;
+  }
+
+  /* Gear */
+  details{
+    border-bottom:1px solid var(--line); padding:18px 0;
+  }
+  summary{
+    cursor:pointer; font-family:var(--serif); font-size:1.05rem; font-weight:600;
+    list-style:none; display:flex; justify-content:space-between; align-items:center;
+    color:var(--text);
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'+'; color:var(--accent); font-size:1.4rem;}
+  details[open] summary::after{content:'\2212';}
+  details ul{margin:16px 0 4px 0; padding-left:18px; color:var(--text-dim); font-size:0.92rem;}
+  details li{margin-bottom:6px;}
+
+  /* Contact */
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+  }
+  .contact-block h3{
+    font-family:var(--serif); text-transform:uppercase; letter-spacing:0.08em;
+    font-size:0.9rem; color:var(--text-dim); margin-bottom:14px;
+  }
+  .contact-block a.big{
+    font-size:1.4rem; font-family:var(--serif); color:var(--text);
+  }
+  .contact-block a.big:hover{color:var(--accent);}
+  .socials{display:flex; gap:18px; margin-top:22px;}
+  .socials a{
+    width:42px; height:42px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:0.8rem;
+    color:var(--text-dim); transition:all 0.2s;
+  }
+  .socials a:hover{border-color:var(--accent); color:var(--accent);}
+
+  footer{
+    padding:36px 0; border-top:1px solid var(--line);
+    color:var(--text-dim); font-size:0.85rem; text-align:center;
+  }
+
+  @media (max-width:760px){
+    nav ul{
+      position:fixed; top:72px; left:0; right:0; bottom:0;
+      background:var(--bg); flex-direction:column; padding:32px 24px; gap:24px;
+      transform:translateX(100%); transition:transform 0.25s; height:auto;
+    }
+    nav.open ul{transform:translateX(0);}
+    .nav-toggle{display:block;}
+    .about-grid, .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">LANDLINE <span>RECORDING</span></div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#rates">Rates</a></li>
+        <li><a href="#gear">Gear</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Hoboken, NJ</div>
+    <h1>A boutique recording studio built around your sound.</h1>
+    <p class="lead">Home of audio engineer Jon Chinn — recording, mixing, mastering, and 1-on-1 music production lessons, powered by a digital/analog hybrid setup.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-primary">Book a Session</a>
+      <a href="#services" class="btn btn-ghost">See Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What We Do</div>
+      <h2>Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Recording</h3>
+        <p>Full bands, solo acts, overdubs, podcasts, audiobooks, voice-over — or anything that can be captured by a microphone or generated in the digital domain.</p>
+      </div>
+      <div class="service-card">
+        <h3>Mixing</h3>
+        <p>Working collaboratively with artists to create emotionally-charged mixes that best tell your story. Our digital/analog hybrid system provides a wide range of sonic possibilities.</p>
+      </div>
+      <div class="service-card">
+        <h3>Mastering</h3>
+        <p>The final stage prior to distribution. Beyond perceived loudness, this may include editing, equalization, compression, limiting, and phase-related enhancements to your final approved mixes.</p>
+      </div>
+      <div class="service-card">
+        <h3>Lessons</h3>
+        <p>One-on-one introduction to recording techniques to improve your home recordings or begin your career in the music business. Think "piano lessons," but for music production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Who's Behind the Board</div>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo"><img src="images/gallery_shot_1.jpg" alt="Jon Chinn with a Fender Jazzmaster"></div>
+      <div class="about-copy">
+        <p>Jon Chinn is a producer, audio engineer, and music industry professional working on both sides of the artist/label equation. In addition to working with artists in the studio on countless projects, Jon has extensive experience in live sound, touring, mixing for television and film, digital distribution, immersive audio, theater productions, and museum installations.</p>
+        <blockquote>"I still love the punk rock dive bar where my adventure began a long, long time ago."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Inside the Studio</div>
+      <h2>Gallery</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/IMG_8323.jpg" alt="Guitars and amps in the live room at Landline Recording"></div>
+      <div class="gallery-item"><img src="images/IMG_8324.jpg" alt="Ampeg bass rig and Rickenbacker at Landline Recording"></div>
+      <div class="gallery-item"><img src="images/IMG_8430.jpg" alt="Close mic'd guitar and amp at Landline Recording"></div>
+      <div class="gallery-item"><img src="images/gallery_shot_2.jpg" alt="Studio corner with amps and vintage rotary phone"></div>
+      <div class="gallery-item"><img src="images/gallery_shot_3.jpg" alt="Tama drum kit in the tracking room"></div>
+      <div class="gallery-item"><img src="images/IMG_0096.jpg" alt="Rickenbacker, Telecaster, and Jazzmaster guitars"></div>
+      <div class="gallery-item"><img src="images/IMG_0113.jpg" alt="Wide shot of the tracking room and drum kit"></div>
+      <div class="gallery-item"><img src="images/IMG_1541.jpg" alt="Ampeg SVT bass rig with Fender Mustang Bass"></div>
+      <div class="gallery-item"><img src="images/IMG_0867.jpg" alt="Fender Deluxe Reverb amp with dual mics"></div>
+      <div class="gallery-item"><img src="images/IMG_0870.jpg" alt="Neumann U87 microphone in shockmount"></div>
+    </div>
+  </div>
+</section>
+
+<section id="rates">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>Rates</h2>
+    </div>
+    <table class="rates-table">
+      <tr><td>Hourly</td><td>$40</td></tr>
+      <tr><td>Mixing (per song)</td><td>$200</td></tr>
+      <tr><td>Mastering (per song)</td><td>$40</td></tr>
+      <tr><td>Instruction (per hour)</td><td>$40</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="gear">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Gear</div>
+      <h2>Studio Gear</h2>
+    </div>
+
+    <details open>
+      <summary>Monitoring</summary>
+      <ul>
+        <li>Adam A7X</li>
+        <li>Audio Engine A5+</li>
+        <li>Headphones — AKG, Sony, Audio Technica</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Hardware</summary>
+      <ul>
+        <li>Apple M4 Max</li>
+        <li>Universal Audio Apollo x8</li>
+        <li>Rupert Neve Designs Shelford Channel</li>
+        <li>Heritage Audio HA73EQX2</li>
+        <li>SSL Pure Drive Quad</li>
+        <li>Universal Audio 1176</li>
+        <li>Audio-Scape EQP-A</li>
+        <li>Audio-Scape V-Comp Vari-Mu</li>
+        <li>dbx 160A (x2)</li>
+        <li>Peavey Valverb — tube spring reverb &amp; tremolo</li>
+        <li>Akai MPC Live sampler/sequencer</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Software</summary>
+      <ul>
+        <li>Avid Pro Tools</li>
+        <li>Plugins from Waves, FabFilter, UA, Slate Digital, IK Multimedia</li>
+        <li>UA Console</li>
+        <li>IK Multimedia Tracks 5 Deluxe</li>
+        <li>Adobe Creative Cloud</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Microphones</summary>
+      <ul>
+        <li>Neumann U87 Ai</li>
+        <li>United FET 47</li>
+        <li>AKG 414 XLS (x2)</li>
+        <li>Telefunken ELA M 260 tube SDC</li>
+        <li>Beyerdynamic M160 ribbon</li>
+        <li>Peluso CEMC-6 SDC (x2)</li>
+        <li>Groove Tubes MD1A tube condenser</li>
+        <li>ACM-1200 tube condenser</li>
+        <li>Sennheiser 609, 604 (x3)</li>
+        <li>Shure SM57 (x2), SM58 (x2), Beta 91A, Beta 57, Beta 52, 520DX "Green Bullet"</li>
+        <li>Electro-Voice 635A</li>
+        <li>Bentstruments Rotary Telephone</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Guitars</summary>
+      <ul>
+        <li>Guild D55 acoustic</li>
+        <li>Gibson L2 "Banner" acoustic</li>
+        <li>Fender Jazzmaster</li>
+        <li>Fender Jaguar HH w/ Bigsby</li>
+        <li>Fender Mustang Bass</li>
+        <li>Hallmark Guitars 60 Custom</li>
+        <li>Guild Bluesbird</li>
+        <li>Gretsch Penguin</li>
+        <li>Gretsch Black Panther</li>
+        <li>Gretsch TK 300</li>
+        <li>Silvertone 1454</li>
+        <li>Rickenbacker 360</li>
+        <li>Rickenbacker 350v63</li>
+        <li>Rickenbacker 408</li>
+        <li>Rickenbacker 4001 Bass</li>
+        <li>Mosrite Ventures Model</li>
+        <li>Eastwood Sidejack Baritone</li>
+        <li>Danelectro 12-string</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Amplification</summary>
+      <ul>
+        <li>Ampeg SVT VR w/ 2x12 Ampeg cab</li>
+        <li>Orange Rockerverb 50 w/ 4x12 cab (white)</li>
+        <li>Fender Deluxe 65 Reissue</li>
+        <li>Fender Pro Jr</li>
+        <li>Sovtek MIG 100</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Pedals</summary>
+      <ul>
+        <li>Benson Amps Preamp</li>
+        <li>Benson Amps Delay</li>
+        <li>MXR MicroAmp</li>
+        <li>MXR Carbon Copy</li>
+        <li>MXR Blue Box</li>
+        <li>MXR Phase 90</li>
+        <li>Fulltone OCD</li>
+        <li>ProCo Rat, Rat 2</li>
+        <li>Grindstone Reveal</li>
+        <li>Ibanez TS9 Tube Screamer</li>
+        <li>Electro-Harmonix Pulsar Tremolo</li>
+        <li>Milkman Sound F-Stop Tremolo</li>
+        <li>Keeley Compressor</li>
+        <li>Tym Guitars Sunshine Rock</li>
+        <li>DOD Phasor 201</li>
+        <li>Electro-Harmonix Big Muff Bass</li>
+        <li>Electro-Harmonix Holy Grail Reverb</li>
+        <li>Danelectro Dan-Echo</li>
+        <li>Danelectro Daddy-O</li>
+        <li>JHS 3 Series Delay</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h3>Email</h3>
+        <a class="big" href="mailto:landlinerecording@gmail.com">landlinerecording@gmail.com</a>
+      </div>
+      <div class="contact-block">
+        <h3>Phone</h3>
+        <a class="big" href="tel:+16147470996">614.747.0996</a>
+        <div class="socials">
+          <a href="https://www.instagram.com/landline_recording" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.youtube.com/@LandlineRecording/featured" target="_blank" rel="noopener">YT</a>
+          <a href="https://www.linkedin.com/in/jonathan-chinn-0aa7902/" target="_blank" rel="noopener">IN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    &copy; <span id="year"></span> Landline Recording — Hoboken, NJ
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
+
+</body>
+</html>
